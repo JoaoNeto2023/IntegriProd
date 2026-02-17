@@ -1,0 +1,26 @@
+1. Controle de Estoque
+  Lote e Validade: Produtos com controle de lote rastreiam fabricação e validade
+
+  Estoque Mínimo: Alerta quando abaixo do mínimo configurado
+
+  Reserva: Quantidade reservada para ordens de produção não consome estoque físico
+
+  Custo Médio: Atualizado automaticamente com movimentações
+
+  2. Produção
+  Ficha Técnica: Múltiplas versões com vigência
+
+  Roteiro: Passo a passo da produção com tempos e recursos
+
+  Apontamento: Registro real de produção por posto de trabalho
+
+  Consumo: Baixa automática ou manual de materiais
+
+  Qualidade: Controle de aprovação/rejeição por lote
+
+  3. Rastreabilidade
+  Trazabilidade Completa: Da matéria-prima ao produto acabado
+
+  Custos Reais: Acompanhamento do custo real vs. previsto
+
+  Histórico: Todas as movimentações são registradas
