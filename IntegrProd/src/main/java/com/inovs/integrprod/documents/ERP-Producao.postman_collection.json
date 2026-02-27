@@ -1,0 +1,1427 @@
+{
+  "info": {
+    "name": "ERP - Módulo Produção/Estoque (COMPLETO)",
+    "description": "Coleção completa com todos os endpoints do sistema",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. CADASTROS BÁSICOS",
+      "item": [
+        {
+          "name": "1.1 Tipo de Produto",
+          "item": [
+            {
+              "name": "Criar Tipo de Produto",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"codigo\": \"MP\",\n    \"descricao\": \"Matéria-Prima\",\n    \"natureza\": \"MP\"\n}" },
+                "url": { "raw": "{{baseUrl}}/tipos-produto", "host": ["{{baseUrl}}"], "path": ["tipos-produto"] }
+              }
+            },
+            {
+              "name": "Listar Todos os Tipos",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/tipos-produto", "host": ["{{baseUrl}}"], "path": ["tipos-produto"] }
+              }
+            },
+            {
+              "name": "Buscar Tipo por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/tipos-produto/1", "host": ["{{baseUrl}}"], "path": ["tipos-produto", "1"] }
+              }
+            },
+            {
+              "name": "Buscar Tipo por Código",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/tipos-produto/codigo/MP", "host": ["{{baseUrl}}"], "path": ["tipos-produto", "codigo", "MP"] }
+              }
+            },
+            {
+              "name": "Buscar por Natureza",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/tipos-produto/natureza/MP", "host": ["{{baseUrl}}"], "path": ["tipos-produto", "natureza", "MP"] }
+              }
+            },
+            {
+              "name": "Atualizar Tipo de Produto",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"codigo\": \"MP\",\n    \"descricao\": \"Matéria-Prima Atualizada\",\n    \"natureza\": \"MP\"\n}" },
+                "url": { "raw": "{{baseUrl}}/tipos-produto/1", "host": ["{{baseUrl}}"], "path": ["tipos-produto", "1"] }
+              }
+            },
+            {
+              "name": "Deletar Tipo de Produto",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/tipos-produto/1", "host": ["{{baseUrl}}"], "path": ["tipos-produto", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.2 Unidade de Medida",
+          "item": [
+            {
+              "name": "Criar Unidade de Medida",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"sigla\": \"UN\",\n    \"descricao\": \"Unidade\"\n}" },
+                "url": { "raw": "{{baseUrl}}/unidades-medida", "host": ["{{baseUrl}}"], "path": ["unidades-medida"] }
+              }
+            },
+            {
+              "name": "Listar Todas as Unidades",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/unidades-medida", "host": ["{{baseUrl}}"], "path": ["unidades-medida"] }
+              }
+            },
+            {
+              "name": "Buscar por Sigla",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/unidades-medida/UN", "host": ["{{baseUrl}}"], "path": ["unidades-medida", "UN"] }
+              }
+            },
+            {
+              "name": "Buscar por Descrição",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/unidades-medida/buscar?descricao=Unidade", "host": ["{{baseUrl}}"], "path": ["unidades-medida", "buscar"], "query": [{ "key": "descricao", "value": "Unidade" }] }
+              }
+            },
+            {
+              "name": "Atualizar Unidade",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"sigla\": \"UN\",\n    \"descricao\": \"Unidade Atualizada\"\n}" },
+                "url": { "raw": "{{baseUrl}}/unidades-medida/UN", "host": ["{{baseUrl}}"], "path": ["unidades-medida", "UN"] }
+              }
+            },
+            {
+              "name": "Deletar Unidade",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/unidades-medida/UN", "host": ["{{baseUrl}}"], "path": ["unidades-medida", "UN"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.3 Família de Produtos",
+          "item": [
+            {
+              "name": "Criar Família",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"codigo\": \"F001\",\n    \"nome\": \"Bebidas\",\n    \"descricao\": \"Todos os tipos de bebidas\"\n}" },
+                "url": { "raw": "{{baseUrl}}/familias-produto", "host": ["{{baseUrl}}"], "path": ["familias-produto"] }
+              }
+            },
+            {
+              "name": "Listar Todas as Famílias",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/familias-produto", "host": ["{{baseUrl}}"], "path": ["familias-produto"] }
+              }
+            },
+            {
+              "name": "Listar Famílias Raiz",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/familias-produto/raizes", "host": ["{{baseUrl}}"], "path": ["familias-produto", "raizes"] }
+              }
+            },
+            {
+              "name": "Buscar Família por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/familias-produto/1", "host": ["{{baseUrl}}"], "path": ["familias-produto", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Código",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/familias-produto/codigo/F001", "host": ["{{baseUrl}}"], "path": ["familias-produto", "codigo", "F001"] }
+              }
+            },
+            {
+              "name": "Listar Subfamílias",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/familias-produto/1/subfamilias", "host": ["{{baseUrl}}"], "path": ["familias-produto", "1", "subfamilias"] }
+              }
+            },
+            {
+              "name": "Buscar por Nome",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/familias-produto/buscar?nome=Bebidas", "host": ["{{baseUrl}}"], "path": ["familias-produto", "buscar"], "query": [{ "key": "nome", "value": "Bebidas" }] }
+              }
+            },
+            {
+              "name": "Atualizar Família",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"codigo\": \"F001\",\n    \"nome\": \"Bebidas e Afins\",\n    \"descricao\": \"Todos os tipos de bebidas\"\n}" },
+                "url": { "raw": "{{baseUrl}}/familias-produto/1", "host": ["{{baseUrl}}"], "path": ["familias-produto", "1"] }
+              }
+            },
+            {
+              "name": "Deletar Família",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/familias-produto/1", "host": ["{{baseUrl}}"], "path": ["familias-produto", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.4 Posto de Trabalho",
+          "item": [
+            {
+              "name": "Criar Posto de Trabalho",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"codigo\": \"PT01\",\n    \"nome\": \"Máquina de Corte\",\n    \"setor\": \"Corte\",\n    \"custoHora\": 50.00,\n    \"custoFixoHora\": 10.00,\n    \"status\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/postos-trabalho", "host": ["{{baseUrl}}"], "path": ["postos-trabalho"] }
+              }
+            },
+            {
+              "name": "Listar Todos os Postos",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/postos-trabalho", "host": ["{{baseUrl}}"], "path": ["postos-trabalho"] }
+              }
+            },
+            {
+              "name": "Listar Postos Ativos",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/postos-trabalho/ativos", "host": ["{{baseUrl}}"], "path": ["postos-trabalho", "ativos"] }
+              }
+            },
+            {
+              "name": "Buscar por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/postos-trabalho/1", "host": ["{{baseUrl}}"], "path": ["postos-trabalho", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Código",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/postos-trabalho/codigo/PT01", "host": ["{{baseUrl}}"], "path": ["postos-trabalho", "codigo", "PT01"] }
+              }
+            },
+            {
+              "name": "Buscar por Nome",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/postos-trabalho/buscar/nome?nome=Corte", "host": ["{{baseUrl}}"], "path": ["postos-trabalho", "buscar", "nome"], "query": [{ "key": "nome", "value": "Corte" }] }
+              }
+            },
+            {
+              "name": "Buscar por Setor",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/postos-trabalho/setor/Corte", "host": ["{{baseUrl}}"], "path": ["postos-trabalho", "setor", "Corte"] }
+              }
+            },
+            {
+              "name": "Buscar por Status",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/postos-trabalho/status/ATIVO", "host": ["{{baseUrl}}"], "path": ["postos-trabalho", "status", "ATIVO"] }
+              }
+            },
+            {
+              "name": "Atualizar Posto",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"codigo\": \"PT01\",\n    \"nome\": \"Máquina de Corte Atualizada\",\n    \"setor\": \"Corte\",\n    \"custoHora\": 55.00,\n    \"custoFixoHora\": 12.00,\n    \"status\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/postos-trabalho/1", "host": ["{{baseUrl}}"], "path": ["postos-trabalho", "1"] }
+              }
+            },
+            {
+              "name": "Atualizar Custo",
+              "request": {
+                "method": "PATCH",
+                "url": { "raw": "{{baseUrl}}/postos-trabalho/1/custo?custoHora=60.00&custoFixoHora=15.00", "host": ["{{baseUrl}}"], "path": ["postos-trabalho", "1", "custo"], "query": [{ "key": "custoHora", "value": "60.00" }, { "key": "custoFixoHora", "value": "15.00" }] }
+              }
+            },
+            {
+              "name": "Deletar Posto",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/postos-trabalho/1", "host": ["{{baseUrl}}"], "path": ["postos-trabalho", "1"] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. ESTRUTURA ORGANIZACIONAL",
+      "item": [
+        {
+          "name": "2.1 Empresa",
+          "item": [
+            {
+              "name": "Criar Empresa",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"razaoSocial\": \"Empresa Teste Ltda\",\n    \"nomeFantasia\": \"Teste\",\n    \"cnpj\": \"12345678000199\",\n    \"regimeTributario\": \"3\",\n    \"status\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/empresas", "host": ["{{baseUrl}}"], "path": ["empresas"] }
+              }
+            },
+            {
+              "name": "Listar Todas as Empresas",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/empresas", "host": ["{{baseUrl}}"], "path": ["empresas"] }
+              }
+            },
+            {
+              "name": "Listar Empresas Ativas",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/empresas/ativas", "host": ["{{baseUrl}}"], "path": ["empresas", "ativas"] }
+              }
+            },
+            {
+              "name": "Buscar Empresa por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/empresas/1", "host": ["{{baseUrl}}"], "path": ["empresas", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por CNPJ",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/empresas/cnpj/12345678000199", "host": ["{{baseUrl}}"], "path": ["empresas", "cnpj", "12345678000199"] }
+              }
+            },
+            {
+              "name": "Buscar por Razão Social",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/empresas/buscar/razao-social?razaoSocial=Teste", "host": ["{{baseUrl}}"], "path": ["empresas", "buscar", "razao-social"], "query": [{ "key": "razaoSocial", "value": "Teste" }] }
+              }
+            },
+            {
+              "name": "Buscar por Regime Tributário",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/empresas/regime/3", "host": ["{{baseUrl}}"], "path": ["empresas", "regime", "3"] }
+              }
+            },
+            {
+              "name": "Atualizar Empresa",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"razaoSocial\": \"Empresa Teste Atualizada\",\n    \"nomeFantasia\": \"Teste\",\n    \"cnpj\": \"12345678000199\",\n    \"regimeTributario\": \"3\",\n    \"status\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/empresas/1", "host": ["{{baseUrl}}"], "path": ["empresas", "1"] }
+              }
+            },
+            {
+              "name": "Deletar Empresa",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/empresas/1", "host": ["{{baseUrl}}"], "path": ["empresas", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.2 Filial",
+          "item": [
+            {
+              "name": "Criar Filial",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"empresa\": {\n        \"id\": 1\n    },\n    \"codigo\": \"MATRIZ\",\n    \"nome\": \"Matriz\",\n    \"cnpj\": \"12345678000199\",\n    \"cidade\": \"São Paulo\",\n    \"uf\": \"SP\",\n    \"status\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/filiais", "host": ["{{baseUrl}}"], "path": ["filiais"] }
+              }
+            },
+            {
+              "name": "Listar Todas as Filiais",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/filiais", "host": ["{{baseUrl}}"], "path": ["filiais"] }
+              }
+            },
+            {
+              "name": "Listar Filiais Ativas",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/filiais/ativas", "host": ["{{baseUrl}}"], "path": ["filiais", "ativas"] }
+              }
+            },
+            {
+              "name": "Buscar Filial por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/filiais/1", "host": ["{{baseUrl}}"], "path": ["filiais", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por CNPJ",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/filiais/cnpj/12345678000199", "host": ["{{baseUrl}}"], "path": ["filiais", "cnpj", "12345678000199"] }
+              }
+            },
+            {
+              "name": "Buscar por Código",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/filiais/codigo/MATRIZ", "host": ["{{baseUrl}}"], "path": ["filiais", "codigo", "MATRIZ"] }
+              }
+            },
+            {
+              "name": "Buscar por Empresa",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/filiais/empresa/1", "host": ["{{baseUrl}}"], "path": ["filiais", "empresa", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Nome",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/filiais/buscar/nome?nome=Matriz", "host": ["{{baseUrl}}"], "path": ["filiais", "buscar", "nome"], "query": [{ "key": "nome", "value": "Matriz" }] }
+              }
+            },
+            {
+              "name": "Buscar por UF",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/filiais/uf/SP", "host": ["{{baseUrl}}"], "path": ["filiais", "uf", "SP"] }
+              }
+            },
+            {
+              "name": "Buscar por Cidade",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/filiais/cidade/São Paulo", "host": ["{{baseUrl}}"], "path": ["filiais", "cidade", "São Paulo"] }
+              }
+            },
+            {
+              "name": "Atualizar Filial",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"empresa\": {\n        \"id\": 1\n    },\n    \"codigo\": \"MATRIZ\",\n    \"nome\": \"Matriz Atualizada\",\n    \"cnpj\": \"12345678000199\",\n    \"cidade\": \"São Paulo\",\n    \"uf\": \"SP\",\n    \"status\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/filiais/1", "host": ["{{baseUrl}}"], "path": ["filiais", "1"] }
+              }
+            },
+            {
+              "name": "Deletar Filial",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/filiais/1", "host": ["{{baseUrl}}"], "path": ["filiais", "1"] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. PESSOAS",
+      "item": [
+        {
+          "name": "3.1 Pessoa",
+          "item": [
+            {
+              "name": "Criar Pessoa (PF)",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"tipoPessoa\": \"PF\",\n    \"nomeRazao\": \"João Silva\",\n    \"cpfCnpj\": \"12345678901\",\n    \"email\": \"joao@email.com\",\n    \"celular\": \"11999999999\",\n    \"uf\": \"SP\",\n    \"cidade\": \"São Paulo\",\n    \"situacao\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/pessoas", "host": ["{{baseUrl}}"], "path": ["pessoas"] }
+              }
+            },
+            {
+              "name": "Criar Pessoa (PJ)",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"tipoPessoa\": \"PJ\",\n    \"nomeRazao\": \"Empresa Ltda\",\n    \"cpfCnpj\": \"12345678000199\",\n    \"email\": \"contato@empresa.com\",\n    \"uf\": \"SP\",\n    \"cidade\": \"São Paulo\",\n    \"situacao\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/pessoas", "host": ["{{baseUrl}}"], "path": ["pessoas"] }
+              }
+            },
+            {
+              "name": "Listar Todas as Pessoas",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas", "host": ["{{baseUrl}}"], "path": ["pessoas"] }
+              }
+            },
+            {
+              "name": "Listar Pessoas Ativas",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/ativas", "host": ["{{baseUrl}}"], "path": ["pessoas", "ativas"] }
+              }
+            },
+            {
+              "name": "Buscar Pessoa por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/1", "host": ["{{baseUrl}}"], "path": ["pessoas", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por CPF/CNPJ",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/cpf-cnpj/12345678901", "host": ["{{baseUrl}}"], "path": ["pessoas", "cpf-cnpj", "12345678901"] }
+              }
+            },
+            {
+              "name": "Buscar por Nome",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/buscar/nome?nome=João", "host": ["{{baseUrl}}"], "path": ["pessoas", "buscar", "nome"], "query": [{ "key": "nome", "value": "João" }] }
+              }
+            },
+            {
+              "name": "Buscar por Tipo (PF/PJ)",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/tipo/PF", "host": ["{{baseUrl}}"], "path": ["pessoas", "tipo", "PF"] }
+              }
+            },
+            {
+              "name": "Buscar Clientes",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/clientes", "host": ["{{baseUrl}}"], "path": ["pessoas", "clientes"] }
+              }
+            },
+            {
+              "name": "Buscar Fornecedores",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/fornecedores", "host": ["{{baseUrl}}"], "path": ["pessoas", "fornecedores"] }
+              }
+            },
+            {
+              "name": "Buscar Funcionários",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/funcionarios", "host": ["{{baseUrl}}"], "path": ["pessoas", "funcionarios"] }
+              }
+            },
+            {
+              "name": "Atualizar Pessoa",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"tipoPessoa\": \"PF\",\n    \"nomeRazao\": \"João Silva Atualizado\",\n    \"cpfCnpj\": \"12345678901\",\n    \"email\": \"joao.novo@email.com\",\n    \"situacao\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/pessoas/1", "host": ["{{baseUrl}}"], "path": ["pessoas", "1"] }
+              }
+            },
+            {
+              "name": "Deletar Pessoa",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/pessoas/1", "host": ["{{baseUrl}}"], "path": ["pessoas", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "3.2 Endereços",
+          "item": [
+            {
+              "name": "Adicionar Endereço",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"tipoEndereco\": \"RESIDENCIAL\",\n    \"logradouro\": \"Rua das Flores\",\n    \"numero\": \"123\",\n    \"bairro\": \"Centro\",\n    \"cidade\": \"São Paulo\",\n    \"uf\": \"SP\",\n    \"cep\": \"01234567\",\n    \"principal\": true\n}" },
+                "url": { "raw": "{{baseUrl}}/pessoas/1/enderecos", "host": ["{{baseUrl}}"], "path": ["pessoas", "1", "enderecos"] }
+              }
+            },
+            {
+              "name": "Listar Endereços da Pessoa",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/1/enderecos", "host": ["{{baseUrl}}"], "path": ["pessoas", "1", "enderecos"] }
+              }
+            },
+            {
+              "name": "Buscar Endereço Principal",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/1/enderecos/principal", "host": ["{{baseUrl}}"], "path": ["pessoas", "1", "enderecos", "principal"] }
+              }
+            },
+            {
+              "name": "Atualizar Endereço",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"tipoEndereco\": \"COMERCIAL\",\n    \"logradouro\": \"Av. Paulista\",\n    \"numero\": \"1000\",\n    \"bairro\": \"Bela Vista\",\n    \"cidade\": \"São Paulo\",\n    \"uf\": \"SP\",\n    \"cep\": \"01234567\",\n    \"principal\": true\n}" },
+                "url": { "raw": "{{baseUrl}}/pessoas/enderecos/1", "host": ["{{baseUrl}}"], "path": ["pessoas", "enderecos", "1"] }
+              }
+            },
+            {
+              "name": "Remover Endereço",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/pessoas/enderecos/1", "host": ["{{baseUrl}}"], "path": ["pessoas", "enderecos", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "3.3 Classificações",
+          "item": [
+            {
+              "name": "Adicionar Classificação",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"tipo\": \"CLIENTE\",\n    \"limiteCredito\": 5000.00,\n    \"diasPrazo\": 30\n}" },
+                "url": { "raw": "{{baseUrl}}/pessoas/1/classificacoes", "host": ["{{baseUrl}}"], "path": ["pessoas", "1", "classificacoes"] }
+              }
+            },
+            {
+              "name": "Listar Classificações",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/pessoas/1/classificacoes", "host": ["{{baseUrl}}"], "path": ["pessoas", "1", "classificacoes"] }
+              }
+            },
+            {
+              "name": "Atualizar Classificação",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"limiteCredito\": 10000.00,\n    \"diasPrazo\": 45\n}" },
+                "url": { "raw": "{{baseUrl}}/pessoas/1/classificacoes/CLIENTE", "host": ["{{baseUrl}}"], "path": ["pessoas", "1", "classificacoes", "CLIENTE"] }
+              }
+            },
+            {
+              "name": "Remover Classificação",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/pessoas/1/classificacoes/CLIENTE", "host": ["{{baseUrl}}"], "path": ["pessoas", "1", "classificacoes", "CLIENTE"] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4. PRODUTOS",
+      "item": [
+        {
+          "name": "4.1 Produto",
+          "item": [
+            {
+              "name": "Criar Produto",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"codigo\": \"PROD001\",\n    \"nome\": \"Refrigerante 2L\",\n    \"tipoProduto\": {\n        \"id\": 2\n    },\n    \"unidadeMedida\": {\n        \"sigla\": \"UN\"\n    },\n    \"precoVenda\": 8.50,\n    \"custoUnitario\": 5.00,\n    \"markupPercentual\": 70,\n    \"status\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/produtos", "host": ["{{baseUrl}}"], "path": ["produtos"] }
+              }
+            },
+            {
+              "name": "Listar Todos os Produtos",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos", "host": ["{{baseUrl}}"], "path": ["produtos"] }
+              }
+            },
+            {
+              "name": "Listar Produtos Ativos",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos/ativos", "host": ["{{baseUrl}}"], "path": ["produtos", "ativos"] }
+              }
+            },
+            {
+              "name": "Buscar Produto por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos/1", "host": ["{{baseUrl}}"], "path": ["produtos", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Código",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos/codigo/PROD001", "host": ["{{baseUrl}}"], "path": ["produtos", "codigo", "PROD001"] }
+              }
+            },
+            {
+              "name": "Buscar por Nome",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos/buscar/nome?nome=Refrigerante", "host": ["{{baseUrl}}"], "path": ["produtos", "buscar", "nome"], "query": [{ "key": "nome", "value": "Refrigerante" }] }
+              }
+            },
+            {
+              "name": "Buscar por Tipo",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos/tipo/2", "host": ["{{baseUrl}}"], "path": ["produtos", "tipo", "2"] }
+              }
+            },
+            {
+              "name": "Buscar por Família",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos/familia/1", "host": ["{{baseUrl}}"], "path": ["produtos", "familia", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Faixa de Preço",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos/buscar/preco?min=5&max=10", "host": ["{{baseUrl}}"], "path": ["produtos", "buscar", "preco"], "query": [{ "key": "min", "value": "5" }, { "key": "max", "value": "10" }] }
+              }
+            },
+            {
+              "name": "Atualizar Produto",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"codigo\": \"PROD001\",\n    \"nome\": \"Refrigerante 2L Atualizado\",\n    \"tipoProduto\": {\n        \"id\": 2\n    },\n    \"unidadeMedida\": {\n        \"sigla\": \"UN\"\n    },\n    \"precoVenda\": 9.90,\n    \"status\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/produtos/1", "host": ["{{baseUrl}}"], "path": ["produtos", "1"] }
+              }
+            },
+            {
+              "name": "Atualizar Preço",
+              "request": {
+                "method": "PATCH",
+                "url": { "raw": "{{baseUrl}}/produtos/1/preco?preco=7.50", "host": ["{{baseUrl}}"], "path": ["produtos", "1", "preco"], "query": [{ "key": "preco", "value": "7.50" }] }
+              }
+            },
+            {
+              "name": "Atualizar Status",
+              "request": {
+                "method": "PATCH",
+                "url": { "raw": "{{baseUrl}}/produtos/1/status?status=INATIVO", "host": ["{{baseUrl}}"], "path": ["produtos", "1", "status"], "query": [{ "key": "status", "value": "INATIVO" }] }
+              }
+            },
+            {
+              "name": "Deletar Produto",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/produtos/1", "host": ["{{baseUrl}}"], "path": ["produtos", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.2 Estrutura do Produto (Ficha Técnica)",
+          "item": [
+            {
+              "name": "Criar Estrutura",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"produtoPai\": {\n        \"id\": 1\n    },\n    \"produtoFilho\": {\n        \"id\": 2\n    },\n    \"versao\": \"1.0\",\n    \"quantidade\": 2.5,\n    \"unidadeMedida\": {\n        \"sigla\": \"UN\"\n    },\n    \"nivel\": 1,\n    \"tipoComponente\": \"MP\",\n    \"percPerda\": 5.0,\n    \"ordemProducao\": 1,\n    \"dataInicioVigencia\": \"2026-02-26\"\n}" },
+                "url": { "raw": "{{baseUrl}}/produtos-estrutura", "host": ["{{baseUrl}}"], "path": ["produtos-estrutura"] }
+              }
+            },
+            {
+              "name": "Listar Estrutura por Produto",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos-estrutura/produto/1?versao=1.0", "host": ["{{baseUrl}}"], "path": ["produtos-estrutura", "produto", "1"], "query": [{ "key": "versao", "value": "1.0" }] }
+              }
+            },
+            {
+              "name": "Listar Versões",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos-estrutura/produto/1/versoes", "host": ["{{baseUrl}}"], "path": ["produtos-estrutura", "produto", "1", "versoes"] }
+              }
+            },
+            {
+              "name": "Calcular Custo da Estrutura",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos-estrutura/produto/1/custo?versao=1.0", "host": ["{{baseUrl}}"], "path": ["produtos-estrutura", "produto", "1", "custo"], "query": [{ "key": "versao", "value": "1.0" }] }
+              }
+            },
+            {
+              "name": "Copiar Versão",
+              "request": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/produtos-estrutura/produto/1/copiar-versao?versaoOrigem=1.0&versaoDestino=2.0&usuario=admin", "host": ["{{baseUrl}}"], "path": ["produtos-estrutura", "produto", "1", "copiar-versao"], "query": [{ "key": "versaoOrigem", "value": "1.0" }, { "key": "versaoDestino", "value": "2.0" }, { "key": "usuario", "value": "admin" }] }
+              }
+            },
+            {
+              "name": "Buscar Estrutura por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/produtos-estrutura/1", "host": ["{{baseUrl}}"], "path": ["produtos-estrutura", "1"] }
+              }
+            },
+            {
+              "name": "Atualizar Estrutura",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"quantidade\": 3.0,\n    \"percPerda\": 4.5,\n    \"ordemProducao\": 1\n}" },
+                "url": { "raw": "{{baseUrl}}/produtos-estrutura/1", "host": ["{{baseUrl}}"], "path": ["produtos-estrutura", "1"] }
+              }
+            },
+            {
+              "name": "Deletar Estrutura",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/produtos-estrutura/1", "host": ["{{baseUrl}}"], "path": ["produtos-estrutura", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.3 Roteiro de Produção",
+          "item": [
+            {
+              "name": "Criar Roteiro",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"produto\": {\n        \"id\": 1\n    },\n    \"versao\": \"1.0\",\n    \"postoTrabalho\": {\n        \"id\": 1\n    },\n    \"ordem\": 1,\n    \"operacaoDescricao\": \"Cortar material\",\n    \"tempoSetupMinutos\": 10,\n    \"tempoOperacaoMinutos\": 5,\n    \"maoObraNecessaria\": 1\n}" },
+                "url": { "raw": "{{baseUrl}}/roteiros-producao", "host": ["{{baseUrl}}"], "path": ["roteiros-producao"] }
+              }
+            },
+            {
+              "name": "Listar Roteiro por Produto",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/roteiros-producao/produto/1?versao=1.0", "host": ["{{baseUrl}}"], "path": ["roteiros-producao", "produto", "1"], "query": [{ "key": "versao", "value": "1.0" }] }
+              }
+            },
+            {
+              "name": "Listar Versões do Roteiro",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/roteiros-producao/produto/1/versoes", "host": ["{{baseUrl}}"], "path": ["roteiros-producao", "produto", "1", "versoes"] }
+              }
+            },
+            {
+              "name": "Calcular Tempo Total",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/roteiros-producao/produto/1/tempo-total?versao=1.0", "host": ["{{baseUrl}}"], "path": ["roteiros-producao", "produto", "1", "tempo-total"], "query": [{ "key": "versao", "value": "1.0" }] }
+              }
+            },
+            {
+              "name": "Copiar Versão do Roteiro",
+              "request": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/roteiros-producao/produto/1/copiar-versao?versaoOrigem=1.0&versaoDestino=2.0", "host": ["{{baseUrl}}"], "path": ["roteiros-producao", "produto", "1", "copiar-versao"], "query": [{ "key": "versaoOrigem", "value": "1.0" }, { "key": "versaoDestino", "value": "2.0" }] }
+              }
+            },
+            {
+              "name": "Buscar Roteiro por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/roteiros-producao/1", "host": ["{{baseUrl}}"], "path": ["roteiros-producao", "1"] }
+              }
+            },
+            {
+              "name": "Atualizar Roteiro",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"tempoSetupMinutos\": 8,\n    \"tempoOperacaoMinutos\": 4\n}" },
+                "url": { "raw": "{{baseUrl}}/roteiros-producao/1", "host": ["{{baseUrl}}"], "path": ["roteiros-producao", "1"] }
+              }
+            },
+            {
+              "name": "Deletar Roteiro",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/roteiros-producao/1", "host": ["{{baseUrl}}"], "path": ["roteiros-producao", "1"] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5. ESTOQUE",
+      "item": [
+        {
+          "name": "5.1 Estoque",
+          "item": [
+            {
+              "name": "Criar Estoque",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"filial\": {\n        \"id\": 1\n    },\n    \"produto\": {\n        \"id\": 1\n    },\n    \"lote\": \"LOTE001\",\n    \"quantidade\": 100,\n    \"localizacao\": \"Prateleira A1\",\n    \"custoUnitario\": 5.50,\n    \"statusLote\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/estoque", "host": ["{{baseUrl}}"], "path": ["estoque"] }
+              }
+            },
+            {
+              "name": "Listar Todo o Estoque",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque", "host": ["{{baseUrl}}"], "path": ["estoque"] }
+              }
+            },
+            {
+              "name": "Buscar Estoque por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque/1", "host": ["{{baseUrl}}"], "path": ["estoque", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Filial",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque/filial/1", "host": ["{{baseUrl}}"], "path": ["estoque", "filial", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Produto",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque/produto/1", "host": ["{{baseUrl}}"], "path": ["estoque", "produto", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Filial e Produto",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque/filial/1/produto/1", "host": ["{{baseUrl}}"], "path": ["estoque", "filial", "1", "produto", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Lote",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque/lote?filialId=1&produtoId=1&lote=LOTE001", "host": ["{{baseUrl}}"], "path": ["estoque", "lote"], "query": [{ "key": "filialId", "value": "1" }, { "key": "produtoId", "value": "1" }, { "key": "lote", "value": "LOTE001" }] }
+              }
+            },
+            {
+              "name": "Atualizar Estoque",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"localizacao\": \"Prateleira B2\",\n    \"statusLote\": \"ATIVO\"\n}" },
+                "url": { "raw": "{{baseUrl}}/estoque/1", "host": ["{{baseUrl}}"], "path": ["estoque", "1"] }
+              }
+            },
+            {
+              "name": "Deletar Estoque",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/estoque/1", "host": ["{{baseUrl}}"], "path": ["estoque", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.2 Movimentações",
+          "item": [
+            {
+              "name": "Entrada de Estoque",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"filial\": {\n        \"id\": 1\n    },\n    \"produto\": {\n        \"id\": 1\n    },\n    \"quantidade\": 50,\n    \"loteDestino\": \"LOTE001\",\n    \"documentoTipo\": \"NF\",\n    \"documentoNumero\": \"NF001\",\n    \"usuarioMovimento\": \"admin\"\n}" },
+                "url": { "raw": "{{baseUrl}}/estoque/movimentos/entrada", "host": ["{{baseUrl}}"], "path": ["estoque", "movimentos", "entrada"] }
+              }
+            },
+            {
+              "name": "Saída de Estoque",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"filial\": {\n        \"id\": 1\n    },\n    \"produto\": {\n        \"id\": 1\n    },\n    \"quantidade\": 10,\n    \"loteOrigem\": \"LOTE001\",\n    \"documentoTipo\": \"VENDA\",\n    \"documentoNumero\": \"V001\",\n    \"usuarioMovimento\": \"admin\"\n}" },
+                "url": { "raw": "{{baseUrl}}/estoque/movimentos/saida", "host": ["{{baseUrl}}"], "path": ["estoque", "movimentos", "saida"] }
+              }
+            },
+            {
+              "name": "Transferência entre Lotes",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"filial\": {\n        \"id\": 1\n    },\n    \"produto\": {\n        \"id\": 1\n    },\n    \"quantidade\": 20,\n    \"loteOrigem\": \"LOTE001\",\n    \"loteDestino\": \"LOTE002\",\n    \"usuarioMovimento\": \"admin\"\n}" },
+                "url": { "raw": "{{baseUrl}}/estoque/movimentos/transferencia", "host": ["{{baseUrl}}"], "path": ["estoque", "movimentos", "transferencia"] }
+              }
+            },
+            {
+              "name": "Ajuste de Estoque",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"filial\": {\n        \"id\": 1\n    },\n    \"produto\": {\n        \"id\": 1\n    },\n    \"quantidade\": 15,\n    \"loteOrigem\": \"LOTE001\",\n    \"usuarioMovimento\": \"admin\",\n    \"observacao\": \"Ajuste de inventário\"\n}" },
+                "url": { "raw": "{{baseUrl}}/estoque/movimentos/ajuste", "host": ["{{baseUrl}}"], "path": ["estoque", "movimentos", "ajuste"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.3 MovimentoEstoque (Consultas)",
+          "item": [
+            {
+              "name": "Listar Todos os Movimentos",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/movimentos-estoque", "host": ["{{baseUrl}}"], "path": ["movimentos-estoque"] }
+              }
+            },
+            {
+              "name": "Buscar Movimento por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/movimentos-estoque/1", "host": ["{{baseUrl}}"], "path": ["movimentos-estoque", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Filial",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/movimentos-estoque/filial/1", "host": ["{{baseUrl}}"], "path": ["movimentos-estoque", "filial", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Produto",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/movimentos-estoque/produto/1", "host": ["{{baseUrl}}"], "path": ["movimentos-estoque", "produto", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Tipo",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/movimentos-estoque/tipo/ENTRADA", "host": ["{{baseUrl}}"], "path": ["movimentos-estoque", "tipo", "ENTRADA"] }
+              }
+            },
+            {
+              "name": "Buscar por Período",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/movimentos-estoque/periodo?inicio=2026-02-01&fim=2026-02-28", "host": ["{{baseUrl}}"], "path": ["movimentos-estoque", "periodo"], "query": [{ "key": "inicio", "value": "2026-02-01" }, { "key": "fim", "value": "2026-02-28" }] }
+              }
+            },
+            {
+              "name": "Buscar por Documento",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/movimentos-estoque/documento?tipo=NF&numero=NF001", "host": ["{{baseUrl}}"], "path": ["movimentos-estoque", "documento"], "query": [{ "key": "tipo", "value": "NF" }, { "key": "numero", "value": "NF001" }] }
+              }
+            },
+            {
+              "name": "Buscar por Lote",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/movimentos-estoque/lote/LOTE001", "host": ["{{baseUrl}}"], "path": ["movimentos-estoque", "lote", "LOTE001"] }
+              }
+            },
+            {
+              "name": "Estornar Movimento",
+              "request": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/movimentos-estoque/1/estornar?usuario=admin", "host": ["{{baseUrl}}"], "path": ["movimentos-estoque", "1", "estornar"], "query": [{ "key": "usuario", "value": "admin" }] }
+              }
+            },
+            {
+              "name": "Deletar Movimento",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/movimentos-estoque/1", "host": ["{{baseUrl}}"], "path": ["movimentos-estoque", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.4 Consultas Específicas de Estoque",
+          "item": [
+            {
+              "name": "Consultar Saldo do Produto",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque/saldo?filialId=1&produtoId=1", "host": ["{{baseUrl}}"], "path": ["estoque", "saldo"], "query": [{ "key": "filialId", "value": "1" }, { "key": "produtoId", "value": "1" }] }
+              }
+            },
+            {
+              "name": "Consultar Saldo Disponível",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque/disponivel?filialId=1&produtoId=1", "host": ["{{baseUrl}}"], "path": ["estoque", "disponivel"], "query": [{ "key": "filialId", "value": "1" }, { "key": "produtoId", "value": "1" }] }
+              }
+            },
+            {
+              "name": "Estoque Abaixo do Mínimo",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque/alertas/abaixo-minimo", "host": ["{{baseUrl}}"], "path": ["estoque", "alertas", "abaixo-minimo"] }
+              }
+            },
+            {
+              "name": "Produtos a Vencer",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque/alertas/a-vencer?dias=30", "host": ["{{baseUrl}}"], "path": ["estoque", "alertas", "a-vencer"], "query": [{ "key": "dias", "value": "30" }] }
+              }
+            },
+            {
+              "name": "Produtos Vencidos",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/estoque/alertas/vencidos", "host": ["{{baseUrl}}"], "path": ["estoque", "alertas", "vencidos"] }
+              }
+            },
+            {
+              "name": "Calcular Saldo Diário",
+              "request": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/estoque/relatorios/calcular-saldo-diario?filialId=1&data=2026-02-26", "host": ["{{baseUrl}}"], "path": ["estoque", "relatorios", "calcular-saldo-diario"], "query": [{ "key": "filialId", "value": "1" }, { "key": "data", "value": "2026-02-26" }] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "6. PRODUÇÃO",
+      "item": [
+        {
+          "name": "6.1 Ordem de Produção",
+          "item": [
+            {
+              "name": "Criar Ordem de Produção",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"filial\": {\n        \"id\": 1\n    },\n    \"numeroOp\": \"OP001\",\n    \"produto\": {\n        \"id\": 1\n    },\n    \"quantidadePlanejada\": 100,\n    \"dataEmissao\": \"2026-02-26\",\n    \"dataInicioPrevista\": \"2026-02-27\",\n    \"dataFimPrevista\": \"2026-03-05\",\n    \"prioridade\": 5,\n    \"status\": \"PLANEJADA\",\n    \"usuarioCriacao\": \"admin\"\n}" },
+                "url": { "raw": "{{baseUrl}}/ordens-producao", "host": ["{{baseUrl}}"], "path": ["ordens-producao"] }
+              }
+            },
+            {
+              "name": "Listar Ordens de Produção",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/ordens-producao", "host": ["{{baseUrl}}"], "path": ["ordens-producao"] }
+              }
+            },
+            {
+              "name": "Buscar OP por ID",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/1", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Status",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/status/PLANEJADA", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "status", "PLANEJADA"] }
+              }
+            },
+            {
+              "name": "Buscar por Produto",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/produto/1", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "produto", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Período",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/periodo?inicio=2026-02-01&fim=2026-02-28", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "periodo"], "query": [{ "key": "inicio", "value": "2026-02-01" }, { "key": "fim", "value": "2026-02-28" }] }
+              }
+            },
+            {
+              "name": "Buscar Ordens Abertas",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/abertas", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "abertas"] }
+              }
+            },
+            {
+              "name": "Buscar Ordens Atrasadas",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/atrasadas", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "atrasadas"] }
+              }
+            },
+            {
+              "name": "Atualizar Ordem de Produção",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"quantidadePlanejada\": 120,\n    \"prioridade\": 3,\n    \"observacoes\": \"Produção urgente\"\n}" },
+                "url": { "raw": "{{baseUrl}}/ordens-producao/1", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "1"] }
+              }
+            },
+            {
+              "name": "Iniciar Produção",
+              "request": {
+                "method": "PATCH",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/1/iniciar", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "1", "iniciar"] }
+              }
+            },
+            {
+              "name": "Pausar Produção",
+              "request": {
+                "method": "PATCH",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/1/pausar", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "1", "pausar"] }
+              }
+            },
+            {
+              "name": "Concluir Produção",
+              "request": {
+                "method": "PATCH",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/1/concluir", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "1", "concluir"] }
+              }
+            },
+            {
+              "name": "Cancelar Produção",
+              "request": {
+                "method": "PATCH",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/1/cancelar", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "1", "cancelar"] }
+              }
+            },
+            {
+              "name": "Deletar Ordem de Produção",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/ordens-producao/1", "host": ["{{baseUrl}}"], "path": ["ordens-producao", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.2 Apontamento de Produção",
+          "item": [
+            {
+              "name": "Criar Apontamento",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"ordemProducao\": {\n        \"id\": 1\n    },\n    \"postoTrabalho\": {\n        \"id\": 1\n    },\n    \"dataApontamento\": \"2026-02-26\",\n    \"horaInicio\": \"08:00\",\n    \"horaFim\": \"12:00\",\n    \"quantidadeProduzida\": 25,\n    \"tipoApontamento\": \"PRODUCAO\",\n    \"usuarioRegistro\": \"admin\"\n}" },
+                "url": { "raw": "{{baseUrl}}/apontamentos", "host": ["{{baseUrl}}"], "path": ["apontamentos"] }
+              }
+            },
+            {
+              "name": "Listar Apontamentos por OP",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/apontamentos/ordem/1", "host": ["{{baseUrl}}"], "path": ["apontamentos", "ordem", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Posto de Trabalho",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/apontamentos/posto/1", "host": ["{{baseUrl}}"], "path": ["apontamentos", "posto", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Data",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/apontamentos/data/2026-02-26", "host": ["{{baseUrl}}"], "path": ["apontamentos", "data", "2026-02-26"] }
+              }
+            },
+            {
+              "name": "Buscar por Período",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/apontamentos/periodo?inicio=2026-02-01&fim=2026-02-28", "host": ["{{baseUrl}}"], "path": ["apontamentos", "periodo"], "query": [{ "key": "inicio", "value": "2026-02-01" }, { "key": "fim", "value": "2026-02-28" }] }
+              }
+            },
+            {
+              "name": "Atualizar Apontamento",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"quantidadeProduzida\": 30,\n    \"observacoes\": \"Produção ajustada\"\n}" },
+                "url": { "raw": "{{baseUrl}}/apontamentos/1", "host": ["{{baseUrl}}"], "path": ["apontamentos", "1"] }
+              }
+            },
+            {
+              "name": "Deletar Apontamento",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/apontamentos/1", "host": ["{{baseUrl}}"], "path": ["apontamentos", "1"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.3 Consumo de Material",
+          "item": [
+            {
+              "name": "Registrar Consumo",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"ordemProducao\": {\n        \"id\": 1\n    },\n    \"produto\": {\n        \"id\": 2\n    },\n    \"estoque\": {\n        \"id\": 1\n    },\n    \"quantidadeConsumida\": 10.5,\n    \"usuarioConsumo\": \"admin\"\n}" },
+                "url": { "raw": "{{baseUrl}}/consumos", "host": ["{{baseUrl}}"], "path": ["consumos"] }
+              }
+            },
+            {
+              "name": "Listar Consumos por OP",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/consumos/ordem/1", "host": ["{{baseUrl}}"], "path": ["consumos", "ordem", "1"] }
+              }
+            },
+            {
+              "name": "Listar Consumos por Produto",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/consumos/produto/2", "host": ["{{baseUrl}}"], "path": ["consumos", "produto", "2"] }
+              }
+            },
+            {
+              "name": "Devolver Material",
+              "request": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/consumos/1/devolver", "host": ["{{baseUrl}}"], "path": ["consumos", "1", "devolver"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.4 Controle de Qualidade",
+          "item": [
+            {
+              "name": "Registrar Inspeção",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"ordemProducao\": {\n        \"id\": 1\n    },\n    \"produto\": {\n        \"id\": 1\n    },\n    \"lote\": \"LOTE001\",\n    \"quantidadeInspecionada\": 10,\n    \"quantidadeAprovada\": 9,\n    \"quantidadeReprovada\": 1,\n    \"resultado\": \"APROVADO\",\n    \"observacoes\": \"Amostra aleatória\"\n}" },
+                "url": { "raw": "{{baseUrl}}/qualidade", "host": ["{{baseUrl}}"], "path": ["qualidade"] }
+              }
+            },
+            {
+              "name": "Listar Inspeções por OP",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/qualidade/ordem/1", "host": ["{{baseUrl}}"], "path": ["qualidade", "ordem", "1"] }
+              }
+            },
+            {
+              "name": "Listar Inspeções por Produto",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/qualidade/produto/1", "host": ["{{baseUrl}}"], "path": ["qualidade", "produto", "1"] }
+              }
+            },
+            {
+              "name": "Buscar por Resultado",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/qualidade/resultado/APROVADO", "host": ["{{baseUrl}}"], "path": ["qualidade", "resultado", "APROVADO"] }
+              }
+            },
+            {
+              "name": "Buscar por Lote",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/qualidade/lote/LOTE001", "host": ["{{baseUrl}}"], "path": ["qualidade", "lote", "LOTE001"] }
+              }
+            },
+            {
+              "name": "Atualizar Inspeção",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n    \"resultado\": \"APROVADO\",\n    \"observacoes\": \"Inspeção concluída\"\n}" },
+                "url": { "raw": "{{baseUrl}}/qualidade/1", "host": ["{{baseUrl}}"], "path": ["qualidade", "1"] }
+              }
+            },
+            {
+              "name": "Deletar Inspeção",
+              "request": {
+                "method": "DELETE",
+                "url": { "raw": "{{baseUrl}}/qualidade/1", "host": ["{{baseUrl}}"], "path": ["qualidade", "1"] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "7. UTILITÁRIOS",
+      "item": [
+        {
+          "name": "7.1 Actuator",
+          "item": [
+            {
+              "name": "Health Check",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/actuator/health", "host": ["{{baseUrl}}"], "path": ["actuator", "health"] }
+              }
+            },
+            {
+              "name": "Métricas",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/actuator/metrics", "host": ["{{baseUrl}}"], "path": ["actuator", "metrics"] }
+              }
+            },
+            {
+              "name": "Informações",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/actuator/info", "host": ["{{baseUrl}}"], "path": ["actuator", "info"] }
+              }
+            }
+          ]
+        },
+        {
+          "name": "7.2 Swagger",
+          "item": [
+            {
+              "name": "Swagger UI",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/swagger-ui.html", "host": ["{{baseUrl}}"], "path": ["swagger-ui.html"] }
+              }
+            },
+            {
+              "name": "OpenAPI JSON",
+              "request": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/api-docs", "host": ["{{baseUrl}}"], "path": ["api-docs"] }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
