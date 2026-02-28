@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        @apply bg-navy-950 text-navy-50 font-sans;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-navy-900;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-navy-600 rounded;
+    }
+}
+
+@layer components {
+
+    /* Cards */
+    .card {
+        @apply bg-surface border border-navy-700/30 rounded-xl overflow-hidden;
+    }
+
+    /* Inputs */
+    .form-input {
+        @apply w-full bg-surface-3 border border-navy-700/30 rounded-lg px-3 py-2 text-sm text-navy-50 outline-none transition-colors placeholder:text-navy-500 focus:border-navy-400;
+    }
+
+    /* Botões base */
+    .btn {
+        @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium cursor-pointer border-none transition-all duration-150 whitespace-nowrap font-sans disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
+    .btn-primary {
+        @apply bg-navy-500 text-white hover:bg-navy-400;
+    }
+
+    .btn-accent {
+        @apply bg-accent text-navy-950 hover:opacity-90;
+    }
+
+    .btn-outline {
+        @apply bg-transparent border border-navy-700/40 text-navy-300 hover:bg-surface-3 hover:text-navy-50;
+    }
+
+    .btn-danger {
+        @apply bg-red-500/15 text-red-400 border border-red-500/25 hover:bg-red-500/25;
+    }
+
+    .btn-ghost {
+        @apply bg-transparent text-navy-400 hover:bg-surface-3 hover:text-navy-50;
+    }
+
+    .btn-sm {
+        @apply px-3 py-1.5 text-xs;
+    }
+
+    /* Badges */
+    .badge {
+        @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold tracking-wide;
+    }
+
+    .badge-success {
+        @apply bg-green-500/15 text-green-400;
+    }
+
+    .badge-danger {
+        @apply bg-red-500/15 text-red-400;
+    }
+
+    .badge-warning {
+        @apply bg-amber-500/15 text-amber-400;
+    }
+
+    .badge-info {
+        @apply bg-navy-500/20 text-navy-200;
+    }
+
+    .badge-muted {
+        @apply bg-surface-3 text-navy-400;
+    }
+
+    .badge-accent {
+        @apply bg-accent/15 text-accent;
+    }
+
+    /* Tabela */
+    .table-head-cell {
+        @apply text-[11px] font-semibold tracking-[0.8px] uppercase text-navy-500 py-2.5 px-4 text-left border-b border-navy-700/30 whitespace-nowrap;
+    }
+
+    .table-cell {
+        @apply py-3 px-4 text-sm text-navy-300 align-middle border-b border-navy-700/10;
+    }
+
+    .table-row {
+        @apply transition-colors hover:bg-surface-3;
+    }
+
+    /* Tabs */
+    .tab {
+        @apply px-4 py-2.5 text-sm font-medium text-navy-400 cursor-pointer border-b-2 border-transparent -mb-px transition-all hover:text-navy-50;
+    }
+
+    .tab-active {
+        @apply text-navy-200 border-navy-300;
+    }
+
+    /* Textos utilitários */
+    .page-title {
+        @apply text-xl font-bold font-display tracking-tight;
+    }
+
+    .page-subtitle {
+        @apply text-sm text-navy-400 mt-0.5;
+    }
+
+    .section-label {
+        @apply text-[10px] font-semibold tracking-[1.5px] uppercase text-navy-600;
+        color: #111827 !important;
+    }
+}
